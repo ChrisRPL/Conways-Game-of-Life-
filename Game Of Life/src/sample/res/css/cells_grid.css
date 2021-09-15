@@ -1,0 +1,4 @@
+.board {
+    -fx-background-color: #000000;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}

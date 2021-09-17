@@ -4,30 +4,39 @@ import sample.functionalities.interfaces.CellsLoader;
 import sample.models.Cell;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Simulation {
+
     private List<List<Cell>> cellsGrid;
 
-    Simulation(CellsLoader cellsLoader) {
+    public Simulation(CellsLoader cellsLoader) {
         cellsGrid = cellsLoader.loadCells();
     }
 
     public void doOneSimulationSequence() {
-        List<List<Cell>> cellsGridCopy = new ArrayList<>(cellsGrid);
+
+        List<List<Cell>> cellsGridCopy = new ArrayList<>();
+        for (List<Cell> gridRow: cellsGrid){
+            List<Cell> copyGridRow = new ArrayList<>();
+            for (Cell cell : gridRow)
+                copyGridRow.add(cell.copy());
+            cellsGridCopy.add(copyGridRow);
+        }
+
         for (int i=1; i<cellsGrid.size()-1; i++){
             for (int j=1; j<cellsGrid.get(0).size()-1; j++){
-                checkAndSetCellStatus(cellsGrid.get(i).get(j));
-                cellsGridCopy.get(i).set(j, cellsGrid.get(i).get(j));
+                checkAndSetCellStatus(cellsGridCopy.get(i).get(j));
             }
         }
 
         for (int i=0; i<cellsGrid.size(); i++){
             for (int j=0; j<cellsGrid.get(i).size(); j++){
-                cellsGrid.get(i).set(j, cellsGridCopy.get(i).get(j));
+                cellsGrid.get(i).get(j).setAlive(cellsGridCopy.get(i).get(j).isAlive());
             }
         }
+
+
     }
 
     private int getAliveNeighborsCount(Cell cell) {
@@ -37,6 +46,7 @@ public class Simulation {
                 aliveNeighbors += cellsGrid.get(cell.getRow()+i).get(cell.getColumn()+j).isAlive() ? 1 : 0;
 
             aliveNeighbors -= cell.isAlive() ? 1 : 0;
+        System.out.println(aliveNeighbors + " " + cell.getRow() + " " + cell.getColumn());
             return aliveNeighbors;
     }
 
@@ -50,5 +60,9 @@ public class Simulation {
             if (aliveNeighbors == 3)
                 cell.setAlive(true);
         }
+    }
+
+    public List<List<Cell>> getCellsGrid() {
+        return cellsGrid;
     }
 }

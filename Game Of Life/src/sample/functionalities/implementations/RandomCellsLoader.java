@@ -9,7 +9,7 @@ import java.util.List;
 public class RandomCellsLoader implements CellsLoader {
     private final int ROWS, COLS;
 
-    RandomCellsLoader(int rows, int cols) {
+    public RandomCellsLoader(int rows, int cols) {
         this.ROWS = rows;
         this.COLS = cols;
     }

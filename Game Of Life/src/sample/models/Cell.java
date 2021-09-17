@@ -1,5 +1,6 @@
 package sample.models;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Cell extends Rectangle {
@@ -10,6 +11,14 @@ public class Cell extends Rectangle {
         this.row = row;
         this.column = column;
         this.isAlive = isAlive;
+
+        if (isAlive)
+            this.setFill(Color.BLACK);
+        else
+            this.setFill(Color.WHITE);
+
+        this.setWidth(10);
+        this.setHeight(10);
     }
 
     public int getRow() {
@@ -34,5 +43,20 @@ public class Cell extends Rectangle {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
+
+        if (isAlive)
+            this.setFill(Color.BLACK);
+        else
+            this.setFill(Color.WHITE);
     }
+
+    public Cell copy() {
+        return new Cell(row, column, isAlive);
+    }
+
+    public Cell copy(boolean isAlive) {
+        return new Cell(row, column, isAlive);
+    }
+
+
 }

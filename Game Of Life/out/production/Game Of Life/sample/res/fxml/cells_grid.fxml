@@ -2,5 +2,5 @@
 <?import javafx.scene.layout.GridPane?>
 
 
-<GridPane alignment="CENTER" gridLinesVisible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="board" xmlns="http://javafx.com/javafx/16" fx:id="board" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CellsGridController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" fx:id="board" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CellsGridController">
 </GridPane>

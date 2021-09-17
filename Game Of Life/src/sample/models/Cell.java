@@ -25,16 +25,8 @@ public class Cell extends Rectangle {
         return row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
-
     public int getColumn() {
         return column;
-    }
-
-    public void setColumn(int column) {
-        this.column = column;
     }
 
     public boolean isAlive() {
@@ -53,10 +45,4 @@ public class Cell extends Rectangle {
     public Cell copy() {
         return new Cell(row, column, isAlive);
     }
-
-    public Cell copy(boolean isAlive) {
-        return new Cell(row, column, isAlive);
-    }
-
-
 }

@@ -26,14 +26,13 @@ public class FileCellsLoader implements CellsLoader {
                 char [] cellsInRow = gridRows.get(i).toCharArray();
                 List<Cell> cellsRow = new ArrayList<>();
                 for (int j=0; j<cellsInRow.length; j++){
-                    cellsRow.add(new Cell(i, j, cellsInRow[j] == '.' ? false : true));
+                    cellsRow.add(new Cell(i, j, cellsInRow[j] != '.'));
                 }
                 cells.add(cellsRow);
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(cells.size() + " " + cells.get(0).size());
         return cells;
     }
 }

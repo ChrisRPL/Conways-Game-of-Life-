@@ -46,5 +46,4 @@ public class CellsGridController {
         board.setAlignment(Pos.CENTER);
         board.setGridLinesVisible(true);
     }
-
 }

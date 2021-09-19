@@ -15,7 +15,6 @@ public class Simulation {
     }
 
     public void doOneSimulationSequence() {
-
         List<List<Cell>> cellsGridCopy = new ArrayList<>();
         for (List<Cell> gridRow : cellsGrid) {
             List<Cell> copyGridRow = new ArrayList<>();

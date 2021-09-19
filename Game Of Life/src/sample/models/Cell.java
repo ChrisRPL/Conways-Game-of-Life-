@@ -12,10 +12,7 @@ public class Cell extends Rectangle {
         this.column = column;
         this.isAlive = isAlive;
 
-        if (isAlive)
-            this.setFill(Color.BLACK);
-        else
-            this.setFill(Color.WHITE);
+        this.setFill(isAlive ? Color.BLACK : Color.WHITE);
 
         this.setWidth(10);
         this.setHeight(10);
@@ -35,11 +32,7 @@ public class Cell extends Rectangle {
 
     public void setAlive(boolean alive) {
         isAlive = alive;
-
-        if (isAlive)
-            this.setFill(Color.BLACK);
-        else
-            this.setFill(Color.WHITE);
+        this.setFill(isAlive ? Color.BLACK : Color.WHITE);
     }
 
     public Cell copy() {
